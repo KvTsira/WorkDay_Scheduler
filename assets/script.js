@@ -29,6 +29,15 @@ $().ready(function () {
             }
         })
     }
-
-    
 });
+
+//save schedule user input
+function save() {
+    //get time and decription to save to local storage
+    var theTime = $(this).siblings(".description").attr("id");
+    var theDescription = $(this).siblings(".description").val();
+    localStorage.setItem(theTime, theDescription);
+}
+
+//add onlick event to the button
+$(".saveBtn").on("click", save);
