@@ -3,6 +3,8 @@ $().ready(function () {
     main();
 });
 
+
+//group the functions we want to run when the page loads
 function main (){
     //call function to show the time
     showCurrentTime();
