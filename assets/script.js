@@ -1,6 +1,9 @@
 //cal the jQuary event when the DOM is loaded
 $().ready(function () {
     main();
+
+    //call function to get the schedule information from the local storage
+    getScheduleData();
 });
 
 
@@ -12,10 +15,7 @@ function main (){
     //call function to color the grid
     colorCodeRows();    
 
-    //call function to get the schedule information from the local storage
-    getScheduleData();
-
-    //refresh the page on every minute
+    //refresh the page on every minute without re-pulling the data. just the clock update and the grid colocoding
     setTimeout("main()",5000);
 }
 
