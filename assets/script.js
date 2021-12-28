@@ -16,17 +16,19 @@ function main (){
     getScheduleData();
 
     //refresh the page on every minute
-    setTimeout("main()",10000);
+    setTimeout("main()",5000);
 }
 
 
 //get current date and time using the moment web API
 function showCurrentTime() {
     $("#currentDay").text("The page was refreshed on " + moment().format("MMMM Do, h:mm a"));
+    
 }
 
 //color the grid
 function colorCodeRows() {
+        
     //get currrent hour
     var currentHour=moment().format("H"); //24 hour time 0..23
 
@@ -37,13 +39,13 @@ function colorCodeRows() {
         var gridHour=parseInt($(this).attr("id"));
         //comparte the hours and apply classes accordingly
         if (gridHour == currentHour){
-            $(this).addClass("present");
+            $(this).removeClass("past future").addClass("present");
         }
         else if (gridHour < currentHour) {
-            $(this).addClass("past");
+            $(this).removeClass("present future").addClass("past");
         }
         else {
-            $(this).addClass("future");
+            $(this).removeClass("present past").addClass("future");
         }
     })
 }
